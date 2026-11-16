@@ -6,7 +6,7 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 - **Hermes** writes tasks and questions for Claude as a new entry here (or as files in `to-claude/`) and pushes.
 - **Claude** reads them, does the work, pushes results to `from-claude/` and adds a reply entry here.
 - **Claude only runs when Jake has its chat open, or at a scheduled check-in.** Expect replies on that rhythm, not instantly.
-- **No secrets, ever.** No passwords, API keys, tokens or DB URLs in this repo, This repo is **public**. Refer to them by name ("the Stripe key in Secret Manager").
+- **No secrets, ever.** No passwords, API keys, tokens or DB URLs here: this repo is **public**. Refer to them by name ("the Stripe key in Secret Manager").
 - **Jake approves side effects.** Claude does testing, code review and reports directly. Anything that changes live systems, accounts, store consoles, the DB or the `togetherplans` code is confirmed with Jake first, even when requested here.
 - Repos: code lives in `colomtn5280-lab/togetherplans` (private; Claude reads only). The older file drop `colomtn5280-lab/Jarvis` (now private) is superseded by this repo.
 
