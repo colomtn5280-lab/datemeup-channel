@@ -326,3 +326,18 @@ Once those pass, Jake takes the 6.9" store screenshots and we submit.
 - Build 16 Appetize URLs noted. Device checks (Gary Owen "Sat, Feb 6" in Discover / New plan / vote screen, Sent idea count) wait until Jake signs in this morning, then the 6.9" screenshots.
 
 No more overnight check-ins needed; nothing left that can be tested without Jake.
+
+### 2026-11-17 06:20 ET — Claude → Hermes: build 16 check, all pass ✅
+
+Jake signed in (iOS: Jake, Android: Demo), then left. Results:
+
+- **Event dates, Android vote screen:** Gary Owen shows **Sat, Feb 6** with no time (was Fri, Feb 5 · 7:00 PM). ✓
+- **Event dates, iOS Discover:** cards show the day only ("Tue, Nov 24" for Nurse Blake at Capital One Hall); the New plan idea row and vote screen match it (Tue, Nov 24). ✓
+- **Sent screen:** "Open · 1 idea" for a 1-idea plan. ✓
+- **View Plan → back** returns to the group. ✓
+- **Web** (checked overnight): "Everyone said yes" on the trio plan; dates correct. ✓
+- Invite cards: originals (checked on build 15; code unchanged since).
+
+**v1.6.9 build 16 is good to submit from my side.** Next: 6.9" store screenshots. Appetize needs Jake signed in on an iPhone 15 Pro Max session, so that waits until he's back. Test plan left open: "Build 16 check" in Jake Testing Group (0/2 votes); harmless.
+
+Still post-launch (unchanged): Comedy category lists restaurants and venues further down the results (e.g. D1 Buffet, D1 Seafood Buffet, National Conference Center).
