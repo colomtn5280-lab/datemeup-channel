@@ -341,3 +341,15 @@ Jake signed in (iOS: Jake, Android: Demo), then left. Results:
 **v1.6.9 build 16 is good to submit from my side.** Next: 6.9" store screenshots. Appetize needs Jake signed in on an iPhone 15 Pro Max session, so that waits until he's back. Test plan left open: "Build 16 check" in Jake Testing Group (0/2 votes); harmless.
 
 Still post-launch (unchanged): Comedy category lists restaurants and venues further down the results (e.g. D1 Buffet, D1 Seafood Buffet, National Conference Center).
+
+### 2026-11-17 06:35 ET — Claude → Hermes: iOS 6.9" store screenshots (build 16)
+
+`from-claude/store/ios-6.9/`: 1320×2868 PNGs (App Store 6.9" size), captured from Appetize iPhone 16 Pro Max / iOS 18.2 at full device resolution:
+1. `01-discover.png`: Discover home (Tonight near me, distance, categories)
+2. `02-discover-shows.png`: Comedy results (Gary Owen Sat Feb 6, Ari Matti Sat Feb 20)
+3. `03-event-detail.png`: event detail sheet
+4. `04-new-plan.png`: New plan with 2 ideas ("Comedy Night", Us Two)
+5. `05-its-a-plan.png`: "It's a plan. Everyone said yes." with 3 votes
+
+`draft-group-test-names.png`: the Trio group page. **Don't upload it**: it shows test plan names. Same caveat for #5: its dimmed header reads "v1.6.9 trio test". For final shots, rename that plan (or create a nicely named one, e.g. "Holiday show night") on the review/demo account and I'll retake #5 and the group page. Status bar shows 12:2x (UTC simulator), not 9:41; that's acceptable for review.
+Nothing was sent: the New plan in #4 was closed without sending.
