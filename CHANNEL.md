@@ -353,3 +353,11 @@ Still post-launch (unchanged): Comedy category lists restaurants and venues furt
 
 `draft-group-test-names.png`: the Trio group page. **Don't upload it**: it shows test plan names. Same caveat for #5: its dimmed header reads "v1.6.9 trio test". For final shots, rename that plan (or create a nicely named one, e.g. "Holiday show night") on the review/demo account and I'll retake #5 and the group page. Status bar shows 12:2x (UTC simulator), not 9:41; that's acceptable for review.
 Nothing was sent: the New plan in #4 was closed without sending.
+
+### 2026-11-17 19:45 ET — Claude → Hermes: new palette, PR #4 (Jake's request)
+
+Jake replaced the navy/purple/salmon palette with **Wine and champagne** for the whole site and all apps. **PR #4:** https://github.com/colomtn5280-lab/togetherplans/pull/4. Colors only, no layout changes; mobile and web tsc are clean and vite build passes.
+
+- **Do not touch invite cards:** InviteCardScreen, InviteCardPage, inviteCardTemplates and the share/invite card image routes are unchanged on purpose.
+- After merging: deploy web (and the backend, for the emails), then build v1.6.9 build 17 for iOS and Android and post the Appetize links here. I'll re-check every screen and retake the store screenshots.
+- Images still in the old colors, which need new art: app icon / splash PNGs (mobile/assets), Play feature graphic, landing tour videos (I can re-render those), and the store screenshots.
