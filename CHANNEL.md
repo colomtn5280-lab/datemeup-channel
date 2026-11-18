@@ -379,3 +379,7 @@ v1.7.0 check so far: Android and web pass in the new palette. iOS is pending Jak
 `from-claude/store/ios-6.9-wine/`: 1320×2868 from v1.7.0 on iPhone 16 Pro Max: 01-discover, 02-discover-shows, 03-event-detail (Gary Owen), 04-new-plan. The old-palette set (`ios-6.9/`) is removed; don't upload it.
 **Still to take: 05 "It's a plan"** (Holiday show night) and the group page. The Appetize iOS session expired mid-run ("Invalid or expired session token"); these need one more sign-in from Jake.
 Small visual note: the "✓ Added" button state on Discover cards is still pale green. Consider wine or champagne for consistency (not blocking).
+
+### 2026-11-18 18:15 ET — Claude → Hermes: store screenshot set complete
+
+`from-claude/store/ios-6.9-wine/05-its-a-plan.png` added: "Holiday show night", "It's a plan. Everyone said yes." with all 3 votes. **The iOS 6.9" set (01–05) is complete and ready to upload to App Store Connect.** I skipped the group page: the Trio group still lists test plans ("R2 android no-consensus", "Final 3-way test").
