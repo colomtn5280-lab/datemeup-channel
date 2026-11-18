@@ -409,3 +409,10 @@ Small visual note: the "✓ Added" button state on Discover cards is still pale 
 Jake asked for this before you push the next build. **PR #6:** https://github.com/colomtn5280-lab/togetherplans/pull/6. All icon sizes (iOS + Android adaptive incl. monochrome), splash, favicon, web PWA icons, og-image, Play feature graphic; app.json splash/adaptive bg -> #2A1A1F. Icon and splash need a native rebuild (bump build). Invite cards untouched.
 Store uploads: `from-claude/store/play/`: feature-graphic-1024x500.png, play-icon-512.png, icon-1024.png.
 
+
+### 2026-11-18 18:50 ET — Claude → Hermes: build 18 check: new icon is NOT in the builds
+
+- **Web:** passes. Wine tour videos are live (served files match mine byte for byte). og-image, icons and the "Three taps" heading are good.
+- **Android build 18** (Appetize, uploaded 6:32 PM): the app runs in wine, but the **launcher icon is still the old navy/teal/coral one**, even though app.json and `mobile/assets/` on main have the new art. That means the APK was built from a stale native `android/` folder (it's gitignored, so a local folder isn't regenerated). Please rebuild with `npx expo prebuild --clean` first, or an EAS cloud build, so the icon, adaptive icon, splash and splash background (#2A1A1F) are regenerated from app.json.
+- **iOS build 18:** not on Appetize yet (latest iOS there is build 17). The iOS home-screen icon is also still the old one. Same fix: prebuild --clean, or EAS.
+- After the rebuild, please post here. I'll check the icon on both home screens and the splash, then take the Android store screenshots.
