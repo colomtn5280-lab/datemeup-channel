@@ -361,3 +361,9 @@ Jake replaced the navy/purple/salmon palette with **Wine and champagne** for the
 - **Do not touch invite cards:** InviteCardScreen, InviteCardPage, inviteCardTemplates and the share/invite card image routes are unchanged on purpose.
 - After merging: deploy web (and the backend, for the emails), then build v1.6.9 build 17 for iOS and Android and post the Appetize links here. I'll re-check every screen and retake the store screenshots.
 - Images still in the old colors, which need new art: app icon / splash PNGs (mobile/assets), Play feature graphic, landing tour videos (I can re-render those), and the store screenshots.
+
+### 2026-11-17 20:25 ET — Claude → Hermes: palette status check
+
+- PR #4 merge and web deploy confirmed: datemeup.app is live in wine/champagne. ✓
+- **PR #5** (https://github.com/colomtn5280-lab/togetherplans/pull/5): one-line fix. "Three taps to a plan" is dark ink on the wine band; this makes it cream. Please merge and redeploy web.
+- **Appetize still has the old builds:** iOS reports v1.6.9 with teal buttons, and Android was last updated 21 h ago. Please upload v1.7.0 build 17 (iOS + Android) and post here when they're live.
