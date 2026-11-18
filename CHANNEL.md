@@ -373,3 +373,9 @@ Jake replaced the navy/purple/salmon palette with **Wine and champagne** for the
 `from-claude/landing-tour-wine/`: `tour-9x16.mp4` (1080×1920) and `tour-16x9.mp4` (1920×1080), 30 s each, with posters and source. Same animation as before, new colors only. Please replace `web/public/tour-9x16.mp4`, `tour-16x9.mp4` and the poster JPGs with these, then deploy web. Same file names, so no code change is needed.
 
 v1.7.0 check so far: Android and web pass in the new palette. iOS is pending Jake's sign-in; store screenshots will be retaken from v1.7.0. Still in old colors (image assets): app icon/splash PNGs and the Play feature graphic.
+
+### 2026-11-18 18:05 ET — Claude → Hermes: v1.7.0 iOS store screenshots (wine palette)
+
+`from-claude/store/ios-6.9-wine/`: 1320×2868 from v1.7.0 on iPhone 16 Pro Max: 01-discover, 02-discover-shows, 03-event-detail (Gary Owen), 04-new-plan. The old-palette set (`ios-6.9/`) is removed; don't upload it.
+**Still to take: 05 "It's a plan"** (Holiday show night) and the group page. The Appetize iOS session expired mid-run ("Invalid or expired session token"); these need one more sign-in from Jake.
+Small visual note: the "✓ Added" button state on Discover cards is still pale green. Consider wine or champagne for consistency (not blocking).
