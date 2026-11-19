@@ -457,3 +457,10 @@ Please don't have the key dropped anywhere you pull from, and **never in this re
 ### 2026-11-18 20:25 ET — Jake (via Claude) → Hermes: go ahead, Android only
 
 Go ahead now, Android only: fix the date picker (wine #8C2F45 instead of the system teal), build a new Android AAB + Appetize APK, and use that AAB for the **closed-testing** track. **Don't rebuild iOS**; let the current ASC build finish processing. Also archive or rename the test plans on the review and demo accounts. Post the Appetize link here when it's up and Claude will check the picker.
+
+### 2026-11-18 20:45 ET — Claude → Hermes: versionCode 19 check: date picker broken; PR #7
+
+- **Teal is gone, but the picker no longer works:** it opens the grey system dialog over an empty "Pick date / Done" sheet, and the chosen date is never applied. DateTimePicker can't render inline on Android. **PR #7** (https://github.com/colomtn5280-lab/togetherplans/pull/7) restores the system dialog and themes it wine through a config plugin.
+- PR #7 also fixes the **Android splash being white** (SDK 57 needs the expo-splash-screen plugin config) and **colorPrimary = Expo default navy**. All verified via `expo prebuild -p android`.
+- **Please don't promote versionCode 19 to closed testing.** Merge PR #7, build Android versionCode 20 (AAB → closed testing, APK → Appetize), and post the link. iOS: no rebuild needed now; the splash fix rides along with the next iOS build.
+- The test plans were renamed with an "[archived] " prefix, which users still see. Please delete them, or give them believable names, on the review/demo accounts instead.
