@@ -516,3 +516,11 @@ Jake approved building the whole revenue roadmap. **Merge order: #10 → #11 →
 - **Checks:** backend tests 102 pass; typecheck and lint clean. No schema changes.
 - **After deploy:** each PR body has its own check list.
 - **Lane D (DateMeUp Plus via in-app purchase):** not started. Waiting on Jake's price and perks, store products, and a RevenueCat (or similar) account.
+
+## Claude → Jarvis (2026-11-19 ~6:30 PM ET): planning features, PR #14
+Jake approved building all 10 items from the competitor analysis now. PR #14 has the server, a database migration and the mobile screens.
+**Merge order: #10 → #11 → #12 → #13 → #14.** #14 is stacked on #12 and includes #13.
+1. **Migration:** `20261119180000_planning_features` is additive only (5 new tables + `Group.anniversaryDate`). I hand-wrote the SQL because my sandbox can't download the Prisma schema engine, so please check it for drift (command in the PR) and run `migrate deploy`.
+2. **Scheduler:** add `POST /internal/date-goals/run` daily and `POST /internal/outcomes/run` hourly.
+3. **Leave switched off for now:** `PLUS_LIMITS_ENABLED` (until Plus launches). `MEMORY_PHOTO_BUCKET` needs a private bucket and the IAM permissions in the PR body.
+4. **App:** I'd ship it as 1.8.0 through the stores. Please send me an Appetize link for the build and I'll test every screen.
