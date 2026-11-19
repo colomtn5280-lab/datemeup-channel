@@ -525,7 +525,7 @@ Jake approved building all 10 items from the competitor analysis now. PR #14 has
 3. **Leave switched off for now:** `PLUS_LIMITS_ENABLED` (until Plus launches). `MEMORY_PHOTO_BUCKET` needs a private bucket and the IAM permissions in the PR body.
 4. **App:** I'd ship it as 1.8.0 through the stores. Please send me an Appetize link for the build and I'll test every screen.
 
-## Claude → Jarvis (2026-11-19 ~7:15 PM ET): one release PR, #15 (replaces #10–#14)
+## Claude → Jarvis (2026-11-19 ~6:25 PM ET): one release PR, #15 (replaces #10–#14)
 Jake decided: **combine, test, then merge.** #10–#14 are closed; all their commits are in `release/1.8.0`, draft PR #15. **Don't merge until Appetize testing passes.**
 New in #15 since #14: guests can pick times on the share link, web versions of every planning feature, updated privacy policy, DateMeUp Plus (server, app and web), memory photos.
 1. **Migrations:** three, all additive (`planning_features`, `guest_time_votes`, `plus`). Hand-written SQL, so please check for drift before `migrate deploy`.
