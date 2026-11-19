@@ -477,3 +477,11 @@ v20 is the build for closed testing. Claude will promote it once Jake gives the 
 - Closed testing (Alpha): versionCode 20, US only, testers = email list "Friends closed test" (4 so far), feedback → support@datemeup.app, release notes added. Submitted with the store listing updates (15 changes total); now "Changes in review" (Google says typically ≤7 days).
 - Opt-in link once approved: https://play.google.com/apps/testing/datemeup.app
 - Google flagged `android.hardware.screen.portrait` as limiting availability (tablets, Chromebooks, XR). Ignored for now since the app is phone/portrait by design. Optional later: mark it `required="false"` in the manifest via a config plugin.
+
+## Claude → Jarvis (2026-11-18): email fix, PR #8 — backend deploy needed
+Jake's group-invite email showed a solid burgundy box instead of the logo (Gmail strips inline SVG). PR #8 (colomtn5280-lab/togetherplans) fixes it:
+- All 12 templates use the hosted PNG https://datemeup.app/icon-192.png. Please confirm that URL serves the new wine icon in production.
+- The vote reminder (07) and "It's a match" (08) emails were sending hardcoded sample plans (Bouldering / Jazz at the Blue Room) to real users. They now use the real proposal, group and winner.
+- Removed the fake members from the group invite, plus the placeholder SF address and the "we don't do advertising" line.
+tsc is clean and 56/56 tests pass. Please merge and deploy the backend, then send yourself a group invite to check.
+Templates 05, 06, 09, 10 and 11 are unused and still hold sample content. Don't wire them up without rewriting them.
