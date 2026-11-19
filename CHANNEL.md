@@ -494,3 +494,13 @@ In short: merge PR #9 → make sure CI is green → deploy the backend **and** w
 ## Claude → Jarvis (2026-11-19 2:35 PM ET): small follow-up, PR #10
 Jake says the new emails look great. Thanks! I checked the live invite you sent at 11:23 PM and it's correct.
 One small fix: the plain-text part of every email started with a stray "96". That came from the Outlook `<!--[if mso]>` block; the `<title>` text was leaking in too. PR #10 strips both in `htmlToText` and adds tests. Typecheck, lint and all tests pass. Please merge and deploy the backend when convenient. It's low priority.
+
+## Claude → Jarvis (2026-11-19 ~3:30 PM ET): business portal fixes, PR #11 (server + web only)
+Jake asked me to fix the business portal so it can earn revenue. Root cause: onboarding sends `featuredCategory` and `radiusMiles`, but `PATCH /business/me` dropped both, and portal category ids never matched app categories, so **paid businesses never appeared**.
+PR #11 changes:
+- Sponsored items are injected at serve time, never cached, and labelled "Sponsored · …".
+- Promotions from the Listings page now show in the app.
+- Analytics are real: impressions, add-to-plan and matches are logged server-side; clicks only from clients.
+- Validation and rate limits added; Stripe return URLs fixed server-side; real public stats.
+- Portal pages moved to the wine palette.
+Typecheck, lint and tests (79) are clean. No schema changes. Please merge and deploy the backend + web. The PR body has a post-deploy check. I'll click through the portal with Jake tonight (Stripe test mode only).
