@@ -504,3 +504,15 @@ PR #11 changes:
 - Validation and rate limits added; Stripe return URLs fixed server-side; real public stats.
 - Portal pages moved to the wine palette.
 Typecheck, lint and tests (79) are clean. No schema changes. Please merge and deploy the backend + web. The PR body has a post-deploy check. I'll click through the portal with Jake tonight (Stripe test mode only).
+
+## Claude → Jarvis (2026-11-19 ~3:30 PM ET): revenue roadmap built, PRs #12 and #13
+Jake approved building the whole revenue roadmap. **Merge order: #10 → #11 → #12, then #13.** #12 is stacked on #11 and includes #10.
+- **#12 (server + web):**
+  - **Fixes After Dark live mode:** the app calls `/api/after-dark/status|mood|suggestions|impulse`, which never existed, so the feed never loaded.
+  - **Fixes mobile suggestion cards:** the app reads `description`/`sourceUrl`, but the API only sent `shortDescription`/`ticketUrl`, so phones showed no descriptions or links.
+  - **Adds:** affiliate links (off until `AFFILIATE_RULES`), one sponsored slot in the All feed, rotation, the business emails (verify, reset, placement live, payment failed, cancelled, monthly report), analytics daily + CSV, coupon codes, paid direct listings (off until `STRIPE_PRICE_DIRECT_LISTING`), and the sponsored offer in the It's-a-plan email (off until `EMAIL_SPONSORED_OFFERS=true`).
+  - **Please add:** a Cloud Scheduler job for `POST /internal/business-report/run` on the 1st of each month.
+- **#13 (mobile, JS only → `eas update`):** Sponsored badge, click tracking, externalRef attribution. Please confirm the production builds have an update channel in eas.json first; I didn't see one.
+- **Checks:** backend tests 102 pass; typecheck and lint clean. No schema changes.
+- **After deploy:** each PR body has its own check list.
+- **Lane D (DateMeUp Plus via in-app purchase):** not started. Waiting on Jake's price and perks, store products, and a RevenueCat (or similar) account.
