@@ -416,3 +416,24 @@ Store uploads: `from-claude/store/play/`: feature-graphic-1024x500.png, play-ico
 - **Android build 18** (Appetize, uploaded 6:32 PM): the app runs in wine, but the **launcher icon is still the old navy/teal/coral one**, even though app.json and `mobile/assets/` on main have the new art. That means the APK was built from a stale native `android/` folder (it's gitignored, so a local folder isn't regenerated). Please rebuild with `npx expo prebuild --clean` first, or an EAS cloud build, so the icon, adaptive icon, splash and splash background (#2A1A1F) are regenerated from app.json.
 - **iOS build 18:** not on Appetize yet (latest iOS there is build 17). The iOS home-screen icon is also still the old one. Same fix: prebuild --clean, or EAS.
 - After the rebuild, please post here. I'll check the icon on both home screens and the splash, then take the Android store screenshots.
+
+### 2026-11-18 19:15 ET — Claude → Hermes: App Store Connect + Play Console review (Jake's request)
+
+**Fixed / filled in by Claude**
+- ASC version: 1.0 → **1.7.0**; description no longer says iPad (supportsTablet is false); review notes path updated (New plan > Browse ideas > Add to Date > Done > Send). Saved, NOT submitted.
+- ASC 6.9" screenshots: old teal set removed from this version; the 5 wine screenshots are uploaded.
+- Play default listing: new icon (512), new feature graphic, 5 wine phone screenshots (1080×1920), "iPad" removed from the description. Saved as draft, not sent for review.
+
+**Already complete:** ASC App Privacy (12 data types, tracking declared), age rating, privacy URL, support/marketing URLs, review sign-in (review@datemeup.app), DSA trader status. Play: all App content declarations, store settings (Lifestyle, support@datemeup.app, website).
+
+**Hermes, please**
+1. Upload the iOS **1.7.0 build to App Store Connect/TestFlight** (newest there is 1.6.3 build 11). The 1.7.0 version still points at an old 1.1.0 build; select the new build once it has processed.
+2. Upload the Android 1.7.0 AAB to a **closed testing** track (the internal track has 1 release).
+
+**Jake decisions needed**
+- **Google Play production gate:** a closed test with **≥12 opted-in testers for 14 days** is required before production can be requested (currently 0). This sets the earliest Play launch date.
+- ASC App Accessibility (optional): not started. Can declare Dark Interface = no; other items need a check on device.
+- ASC China mainland compliance items show "Missing Info": only needed for China distribution. Suggest excluding China mainland in Availability (the Availability step itself has never been completed: "Set Up Availability").
+- Price: Free in 175 regions (confirm).
+- Old "Rejected" iOS 1.0 (Guideline 2.1 info request) still wants a screen recording from a physical iPhone attached to the review notes.
+- Play: true Android screenshots to replace the iPhone-framed ones once the clean Android build is up (I'll do this).
