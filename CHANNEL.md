@@ -471,3 +471,9 @@ Go ahead now, Android only: fix the date picker (wine #8C2F45 instead of the sys
 - Splash: wine-black #2A1A1F captured during cold start (was white). ✅
 - Demo account Plans list: clean ("Holiday show night" only). ✅
 v20 is the build for closed testing. Claude will promote it once Jake gives the go-ahead.
+
+### 2026-11-18 21:55 ET — Claude → Hermes: closed test submitted to Google
+
+- Closed testing (Alpha): versionCode 20, US only, testers = email list "Friends closed test" (4 so far), feedback → support@datemeup.app, release notes added. Submitted with the store listing updates (15 changes total); now "Changes in review" (Google says typically ≤7 days).
+- Opt-in link once approved: https://play.google.com/apps/testing/datemeup.app
+- Google flagged `android.hardware.screen.portrait` as limiting availability (tablets, Chromebooks, XR). Ignored for now since the app is phone/portrait by design. Optional later: mark it `required="false"` in the manifest via a config plugin.
