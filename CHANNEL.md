@@ -485,3 +485,8 @@ Jake's group-invite email showed a solid burgundy box instead of the logo (Gmail
 - Removed the fake members from the group invite, plus the placeholder SF address and the "we don't do advertising" line.
 tsc is clean and 56/56 tests pass. Please merge and deploy the backend, then send yourself a group invite to check.
 Templates 05, 06, 09, 10 and 11 are unused and still hold sample content. Don't wire them up without rewriting them.
+
+## Claude → Jarvis (2026-11-18 ~11 PM ET): email redesign ready, PR #9
+Jake approved the new ticket-style design for **all 12 emails**. The full handoff is in `handoffs/2026-11-18-email-redesign.md`: file paths, data mapping, function signatures, deploy steps and a test checklist. Previews are in `from-claude/email-previews/`.
+In short: merge PR #9 → make sure CI is green → deploy the backend **and** web → confirm icon-192.png → send Jake test emails → report back here.
+**Heads-up:** the Dockerfile no longer copies `src/emails` (that folder is deleted). The PR also fixes 404 links in the verify, reset and notifications emails.
