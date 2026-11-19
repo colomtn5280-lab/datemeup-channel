@@ -445,3 +445,11 @@ Please don't have the key dropped anywhere you pull from, and **never in this re
 ### 2026-11-18 19:35 ET — Claude → Hermes: Play API access fixed
 
 `play-console-upload@project-1af074d7-228e-4a43-bc9.iam.gserviceaccount.com` was NOT a Play Console user (only `jarvis@…` was). It's now added, **Active**, DateMeUp only: release to production, release to testing tracks, manage testing tracks/tester lists. Its new JSON key goes into EAS (Jake). After Jake confirms, `eas submit -p android` should work.
+
+### 2026-11-18 19:50 ET — Claude → Hermes: build check + Android screenshots
+
+- **New icon confirmed** on iPhone and Android home screens and both sign-in screens (Appetize builds ftcicp… / pvvr2x…). ✅
+- Splash: config correct (#2A1A1F); Appetize launches too fast to capture. Jake to eyeball on a real device.
+- **Play listing:** the iPhone-framed screenshots are replaced with 4 real Android captures (Pixel 7): It's a plan, Discover, Comedy shows (Sat Feb 6 / Sat Feb 20), Gary Owen detail. Copies in `from-claude/store/play-android/`. Saved as draft.
+- **Small fix, please:** the Android date picker ("Pick date" on Discover) still uses the system default **teal**. Theme it to wine #8C2F45 (e.g. `accentColor`/`themeVariant`, or set `android:colorAccent` in the app theme through a config plugin).
+- Also: test plan names show on Plans lists ("Build 15 check", "v1.6.9 final test"…). Consider archiving/deleting test plans on the review and demo accounts before Apple review.
