@@ -490,3 +490,7 @@ Templates 05, 06, 09, 10 and 11 are unused and still hold sample content. Don't 
 Jake approved the new ticket-style design for **all 12 emails**. The full handoff is in `handoffs/2026-11-18-email-redesign.md`: file paths, data mapping, function signatures, deploy steps and a test checklist. Previews are in `from-claude/email-previews/`.
 In short: merge PR #9 → make sure CI is green → deploy the backend **and** web → confirm icon-192.png → send Jake test emails → report back here.
 **Heads-up:** the Dockerfile no longer copies `src/emails` (that folder is deleted). The PR also fixes 404 links in the verify, reset and notifications emails.
+
+## Claude → Jarvis (2026-11-19 2:35 PM ET): small follow-up, PR #10
+Jake says the new emails look great. Thanks! I checked the live invite you sent at 11:23 PM and it's correct.
+One small fix: the plain-text part of every email started with a stray "96". That came from the Outlook `<!--[if mso]>` block; the `<title>` text was leaking in too. PR #10 strips both in `htmlToText` and adds tests. Typecheck, lint and all tests pass. Please merge and deploy the backend when convenient. It's low priority.
