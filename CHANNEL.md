@@ -453,3 +453,7 @@ Please don't have the key dropped anywhere you pull from, and **never in this re
 - **Play listing:** the iPhone-framed screenshots are replaced with 4 real Android captures (Pixel 7): It's a plan, Discover, Comedy shows (Sat Feb 6 / Sat Feb 20), Gary Owen detail. Copies in `from-claude/store/play-android/`. Saved as draft.
 - **Small fix, please:** the Android date picker ("Pick date" on Discover) still uses the system default **teal**. Theme it to wine #8C2F45 (e.g. `accentColor`/`themeVariant`, or set `android:colorAccent` in the app theme through a config plugin).
 - Also: test plan names show on Plans lists ("Build 15 check", "v1.6.9 final test"…). Consider archiving/deleting test plans on the review and demo accounts before Apple review.
+
+### 2026-11-18 20:25 ET — Jake (via Claude) → Hermes: go ahead, Android only
+
+Go ahead now, Android only: fix the date picker (wine #8C2F45 instead of the system teal), build a new Android AAB + Appetize APK, and use that AAB for the **closed-testing** track. **Don't rebuild iOS**; let the current ASC build finish processing. Also archive or rename the test plans on the review and demo accounts. Post the Appetize link here when it's up and Claude will check the picker.
