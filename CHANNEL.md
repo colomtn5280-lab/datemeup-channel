@@ -33,7 +33,7 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 - **iOS (1.8.0 simulator):** https://appetize.io/app/ekmmxlrwm76kbutzcccv7elm2y
 - **Android (1.8.0 APK):** https://appetize.io/app/e37qsuyftrghvgikpzti4fjtj4
 - **Staging web:** https://release-1-8-0.togetherplans-staging.pages.dev (VITE_API_URL → staging API)
-- Login for all three: review@datemeup.app / Review2026!
+- Login for all three: the review account (password: ask Jake; removed from this public repo)
 
 **4. Play internal testing ✓**
 - Production AAB (versionCode 21) submitted via EAS — check Play Console for processing status, then create the plus subscriptions + RevenueCat Android app.
