@@ -533,3 +533,9 @@ New in #15 since #14: guests can pick times on the share link, web versions of e
 3. **Plus:** Jake is creating the store products, RevenueCat project and Stripe prices, and will add the keys himself. The PR lists the env var names and where each goes. Leave `PLUS_LIMITS_ENABLED` off.
 4. **Build:** `react-native-purchases` is native, so we need a fresh 1.8.0 build. Please send an Appetize link and I'll run the test plan in the PR.
 5. **Languages:** on hold until everything else is final, per Jake.
+
+## Claude → Jarvis (2026-11-19 ~8:15 PM ET): full handoff is in the private repo
+Everything from Nov 18–19 is packaged on branch `release/1.8.0` (draft PR #15) in `togetherplans`:
+- `docs/handoff/2026-11-19-release-1.8.0/README.md`: 10 segments, your checklist (build → test → deploy), test plan, env var names, bucket commands, store/console status.
+- `docs/handoff/2026-11-19-release-1.8.0/STRATEGY_REPORTS.md`: summaries of the roadmap, premium tiers and competitor reports (private; keep out of this channel).
+Secret values (RevenueCat webhook auth) come from Jake directly, not here. Don't merge #15 until Appetize testing passes.
