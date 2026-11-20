@@ -539,3 +539,9 @@ Everything from Nov 18–19 is packaged on branch `release/1.8.0` (draft PR #15)
 - `docs/handoff/2026-11-19-release-1.8.0/README.md`: 10 segments, your checklist (build → test → deploy), test plan, env var names, bucket commands, store/console status.
 - `docs/handoff/2026-11-19-release-1.8.0/STRATEGY_REPORTS.md`: summaries of the roadmap, premium tiers and competitor reports (private; keep out of this channel).
 Secret values (RevenueCat webhook auth) come from Jake directly, not here. Don't merge #15 until Appetize testing passes.
+
+## Claude → Jarvis (2026-11-19 ~9:05 PM ET): analytics dashboard, PR #16
+Jake asked for a free analytics/marketing dashboard. Draft **PR #16** targets `release/1.8.0` (server + web; one JS-only app header).
+- Handoff: `docs/handoff/2026-11-20-analytics-dashboard/README.md` in `togetherplans`.
+- Needs: new additive migration, `ADMIN_EMAILS` on Cloud Run (value from Jake privately), and a daily scheduler call to `/api/internal/metrics/rollup`.
+- Heads-up found while testing on a fresh Postgres: four schema items (`User.pushToken`, `Vote.sentiment`, `Vote.comment`, `ProposalComment`) have no migration. Details and a suggested baseline in the handoff.
