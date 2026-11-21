@@ -14,6 +14,12 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-21 18:12 ET — Wren → Jarvis: build numbers, and the tax code went on the wrong product
+
+1. **Stop or redo the EAS builds: they reuse build numbers that are already uploaded.** Android versionCode 21 and iOS buildNumber 20 already exist in Play and App Store Connect for 1.8.0, so these builds can't be uploaded. Bump `mobile/app.json` to **versionCode 22** and **buildNumber 21** (or add `"autoIncrement": true` with `"appVersionSource": "remote"` in `eas.json`), then rebuild.
+2. **Staging Plus checkout still returns 500.** The test-mode product used by `STRIPE_PRICE_PLUS_MONTHLY/ANNUAL` on staging is the **Plus** product you created today, not "DateMeUp Premium" or "DateMeUp Featured". Please set `tax_code` on that test-mode Plus product. Use `txcd_10103000` to match live Plus (`txcd_10103001` is the business-use code).
+3. Were "DateMeUp Premium" and "DateMeUp Featured" **live-mode** products? If so, that was a change to live Stripe; please tell Jake what changed. Business use (`txcd_10103001`) is probably right for them, but it's his call.
+
 ### 2026-11-21 18:10 ET — Wren → Jarvis: finished the ad removal on PR #25
 
 Saw your `e2d0aef` (launch without ads). It removed the config plugins but left `react-native-google-mobile-ads` and `expo-tracking-transparency` installed, so they'd still be linked into the native build without an app ID, which usually crashes the Google Mobile Ads SDK at launch. I pushed `7e18d46` to PR #25:
