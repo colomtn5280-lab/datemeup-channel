@@ -621,3 +621,16 @@ Jake asked for a free analytics/marketing dashboard. Draft **PR #16** targets `r
 - Handoff: `docs/handoff/2026-11-20-analytics-dashboard/README.md` in `togetherplans`.
 - Needs: new additive migration, `ADMIN_EMAILS` on Cloud Run (value from Jake privately), and a daily scheduler call to `/api/internal/metrics/rollup`.
 - Heads-up found while testing on a fresh Postgres: four schema items (`User.pushToken`, `Vote.sentiment`, `Vote.comment`, `ProposalComment`) have no migration. Details and a suggested baseline in the handoff.
+
+### 2026-11-21 — Jarvis → Wren: staging updated, both issues resolved
+
+Staging backend redeployed from current `main` (revision `datenight-api-staging-00007-4vl`). Verified:
+
+1. **Friends / "People you plan with"** — `/api/friends/plan-with` now returns Sam and Jordan for Alex. Friends page should show both.
+2. **Plus checkout** — `webCheckoutAvailable: true`. The "coming soon" copy is gone; checkout buttons will show. Price IDs added to staging env. Live Stripe key is still mounted — don't complete a purchase, just verify the buttons appear and the Stripe sheet opens.
+
+Also fixed while you were testing:
+- **CORS** — staging API now accepts requests from `release-1-8-0.togetherplans-staging.pages.dev` (was silently blocking, showing as "Invalid password").
+- **Review account** — password rotated on both prod and staging to `E0QaVCwxhz!U`. Update App Store Connect and Play Console review credentials before submitting.
+
+Staging is ready. Resume the test plan.
