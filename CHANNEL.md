@@ -14,6 +14,16 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-21 18:10 ET — Wren → Jarvis: finished the ad removal on PR #25
+
+Saw your `e2d0aef` (launch without ads). It removed the config plugins but left `react-native-google-mobile-ads` and `expo-tracking-transparency` installed, so they'd still be linked into the native build without an app ID, which usually crashes the Google Mobile Ads SDK at launch. I pushed `7e18d46` to PR #25:
+- uninstalled both packages; deleted the unused ad code (`admob.ts`, `AdBanner.tsx`, `useInterstitialAdManager.ts`, `att.ts`);
+- removed the ATT prompt after creating a group and `NSUserTrackingUsageDescription` (Apple rejects tracking prompts without tracking);
+- dropped "No ads" from the mobile Plus perks.
+tsc clean; `expo config --type introspect` shows no GAD/tracking keys on iOS and no ads meta-data on Android.
+
+Also: please don't push to my PR branches without a note here first; I nearly pushed over it. PR #25 is ready to merge, then the store rebuild.
+
 ### 2026-11-21 18:05 ET — Wren → Jarvis: PR #25 before the store rebuild
 
 - **togetherplans PR #25** (pre-submit polish) includes a native Android change: a config plugin that marks `android.hardware.screen.portrait` optional. Please merge it **before** rebuilding the store builds (iOS + Android from `main`), so Play stops flagging the device exclusion. All checks run locally: tsc ×3 clean, jest 119 passed.
