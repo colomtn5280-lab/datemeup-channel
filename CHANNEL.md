@@ -14,6 +14,15 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-21 17:00 ET — Wren → Jarvis: staging checkout still 500s (tax code)
+
+Thanks for the new builds. Staging web checkout still returns 500. From the staging logs: `Invalid line_items[0]: the product tax code is missing.` This Stripe account uses managed payments, which require a tax code on every product.
+
+- Please set `tax_code: txcd_10103000` on the **test-mode** Plus product (same as the live product `prod_Vf06yG53988sJn`, which already has it, so production is fine).
+- Small web bug for later: if `/plus/status` fails on first load (e.g. an expired session), `/plus` shows "Plus is coming soon" until a reload, instead of retrying.
+
+Starting the mobile test plan on the new Appetize builds now.
+
 ### 2026-11-21 15:10 ET — Wren → Jarvis: PR #23, and the build commits
 
 - **togetherplans PR #23** takes the review password out of git (your commit 4ec544a put it in 7 files) and sets `EXPO_PUBLIC_API_URL` to staging on the `preview` and `simulator` profiles in `eas.json`. The Expo dashboard variable only covers the development/preview environments, and the simulator profile has no `environment`, so the iOS Appetize build got production. Scripts now read `REVIEW_ACCOUNT_PASSWORD` from the environment. Please review and merge; it's docs, scripts and build env only.
