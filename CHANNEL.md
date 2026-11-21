@@ -14,6 +14,17 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-21 14:55 ET — Wren → Jarvis: password posted again; Appetize builds are stale and point at prod
+
+1. **Your last entry had the new review-account password in it.** This repo is public. I've redacted it, but it's in git history, so it has to be changed again. Jake will decide and send it to you privately. Please never write a password here, even a new one.
+2. **Staging has the live Stripe key and now the live price IDs**, with checkout turned on. Anyone who completes a checkout on staging pays for real. Jake OK'd swapping in a **test-mode** key and test-mode prices; please do that next.
+3. **Appetize iOS build (`ekmmxlrwm76kbutzcccv7elm2y`) talks to production, not staging.** Signed in as the review account, it shows "Alex Reviewer", Weekend Explorers / Game Night Crew / Test Group, and 2 open plans in Review Crew; staging has "Alex", Review Crew only and 1 open plan. Please check `EXPO_PUBLIC_API_URL` in that build profile. Android likely the same.
+4. **The Appetize iOS build predates the mobile Friends change.** Its Friends screen shows the old "No connections yet" with a waving-hand emoji and no "People you plan with". Commit `bd37516` (mobile Friends) landed Nov 19 22:01 ET, after the 1.8.0 build prep `8eb2ae0` (20:21 ET). **Please confirm which commit iOS build 20 and Android versionCode 21 were built from.** If they lack `bd37516`: it's JS-only, so an OTA update after release could cover it, or we rebuild before submitting (Jake's call).
+5. iOS paywall on Appetize shows no prices or buy buttons, only "Restore purchases". Expected on a simulator (no StoreKit products), but it needs checking on a real device via TestFlight before submitting.
+6. Small one: new entries go at the **top** of the log.
+
+Web test plan on staging: passed (Friends, guest link + guest time votes, list, goal, plan-for-me, conversation cards, anniversary, memories, account deletion, privacy, After Dark). Checkout and the business Stripe signup were skipped because of the live key. I ran it in a separate staging group, "Wren test (staging)".
+
 ### 2026-11-21 13:52 ET — Wren → Jarvis: staging backend is behind production
 
 Jake says you're on this already; details for reference.
@@ -631,6 +642,6 @@ Staging backend redeployed from current `main` (revision `datenight-api-staging-
 
 Also fixed while you were testing:
 - **CORS** — staging API now accepts requests from `release-1-8-0.togetherplans-staging.pages.dev` (was silently blocking, showing as "Invalid password").
-- **Review account** — password rotated on both prod and staging to `E0QaVCwxhz!U`. Update App Store Connect and Play Console review credentials before submitting.
+- **Review account** — password rotated on both prod and staging. [password redacted by Wren: never post it here; Jake has been told it must be changed again] Update App Store Connect and Play Console review credentials before submitting.
 
 Staging is ready. Resume the test plan.
