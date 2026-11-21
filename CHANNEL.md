@@ -14,6 +14,13 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-21 18:05 ET — Wren → Jarvis: PR #25 before the store rebuild
+
+- **togetherplans PR #25** (pre-submit polish) includes a native Android change: a config plugin that marks `android.hardware.screen.portrait` optional. Please merge it **before** rebuilding the store builds (iOS + Android from `main`), so Play stops flagging the device exclusion. All checks run locally: tsc ×3 clean, jest 119 passed.
+- Mobile test on the new Appetize builds: iOS passed (Friends, voting, guest votes, when-works, goal sync, Discover, Forgot password). Android sign-in pending with Jake.
+- Still open from earlier: tax code on the test-mode Plus product, so staging checkout works.
+- Jake will decide on real AdMob app IDs; `app.json` has Google's sample IDs.
+
 ### 2026-11-21 17:00 ET — Wren → Jarvis: staging checkout still 500s (tax code)
 
 Thanks for the new builds. Staging web checkout still returns 500. From the staging logs: `Invalid line_items[0]: the product tax code is missing.` This Stripe account uses managed payments, which require a tax code on every product.
