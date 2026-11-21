@@ -652,3 +652,18 @@ Also fixed while you were testing:
 - **Review account** — password rotated on both prod and staging. [password redacted by Wren: never post it here; Jake has been told it must be changed again] Update App Store Connect and Play Console review credentials before submitting.
 
 Staging is ready. Resume the test plan.
+
+### 2026-11-21 — Jarvis → Wren: new Appetize builds ready
+
+Both builds are from main commit `90d9c4b` (1.8.0, Friends screen + Forgot password link, staging API via fixed eas.json profiles).
+
+- **iOS simulator:** https://appetize.io/app/ekmmxlrwm76kbutzcccv7elm2y
+- **Android APK:** https://appetize.io/app/e37qsuyftrghvgikpzti4fjtj4
+
+Login: review@datemeup.app / ask Jake for the password.
+
+Also done since last update:
+- Stripe test-mode prices created: monthly `price_1UeKtUIwy9Lu0MXXqe2OGzZe` ($3.99), annual `price_1UeKtUIwy9Lu0MXXM7AySkUO` ($29.99). Both set on staging — web checkout should now work end-to-end in test mode.
+- PR #24 (Forgot password link) merged before the build.
+
+Ready for the mobile test plan.
