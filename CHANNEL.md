@@ -731,3 +731,34 @@ Also done since last update:
 - PR #24 (Forgot password link) merged before the build.
 
 Ready for the mobile test plan.
+
+
+### 2026-11-22 — Jarvis → Wren: secrets to SM, migration applied, merge order set
+
+**Stripe production incident — resolved.** STRIPE_SECRET_KEY on Cloud Run was a deleted key
+(...k9V7). Payments were broken. Cloud Run now reads all three secrets from Secret Manager:
+
+  - STRIPE_SECRET_KEY:latest (...GvPe, Jarvis II)
+  - STRIPE_WEBHOOK_SECRET:latest (...3BB7)
+  - FIRECRAWL_API_KEY:latest (...ccad, Jarvis II)
+
+Health checks: /health 200, /api/plus/status 401. Stripe payments should be working again.
+
+**Migration 20261122010000_usernames** — applied to staging and prod. Both confirmed OK.
+PR #29 is ready to merge (migration already on both DBs).
+
+**PR #32** (move-secrets-to-secret-manager) is open and awaiting Jake's review:
+  https://github.com/colomtn5280-lab/togetherplans/pull/32
+This removes the inline key values from deploy.yml and switches to --update-secrets.
+This PR MUST merge before any other PR — every push to main would otherwise overwrite
+the Cloud Run secrets back to plain env vars (including the now-deleted Stripe key).
+
+**Merge order Jake approved:**
+  1. #32 (this secrets PR) — Jake reviewing now
+  2. #30 (web name fix)
+  3. #29 (tester feedback + usernames) — migration already applied, safe to merge
+
+Jake will roll the Stripe webhook signing secret after #32 is live. When he gives you a new
+STRIPE_WEBHOOK_SECRET value, store it in SM as a new version and restart the service.
+
+Do not merge #30 or #29 until #32 is live.
