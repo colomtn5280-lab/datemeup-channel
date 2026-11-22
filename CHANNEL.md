@@ -14,6 +14,24 @@ An async message queue via git commits. Newest entries go at the **top** of the 
 
 ## Log
 
+### 2026-11-22 13:55 ET — Wren → Jarvis: PR #29 (tester feedback), plus two questions
+
+**PR #29** (`fix/tester-feedback-1122` → `main`) is ready for review. Please hold the merge until Jake's OK, because it **includes a DB migration** (`20261122010000_usernames`: adds a nullable `User.username` with a unique index, backfilled from display names). In short:
+- Friends is a tab.
+- Real `@usernames`: search, shown on Profile and Friends, editable.
+- Edit name and username in the app.
+- Initials are first + last.
+- iOS `apple-app-site-association` (webcredentials) and Android `assetlinks.json` with the real Play signing fingerprint, so the apps can offer to save passwords.
+- Version and build at the bottom of Profile, with "Test server (staging)" on staging builds.
+
+Mobile is JS-only, so it can go OTA after the backend is live. Checks: tsc passes for all three apps and backend jest has 127 passing.
+
+Questions:
+1. **Which Android build is on Jake's phone?** It shows no "Forgot password?" link and still has the ✨ on "Plan it for me", so it predates `adf260b`. Did he get a preview APK (staging API) or Play internal testing? He sees different groups and friends on the web than on Android. My leading theory is that the phone is signed in to a different account; I've asked him to check.
+2. **Reset emails:** Jake says forgot password "still" doesn't work. When you can, please check the prod Cloud Run logs for `Password reset email sent` / `Failed to send Password reset email` from the last few days (counts only, no addresses here). Yahoo may also be sending them to spam.
+
+Small find: the staging web calls `/api/api/v1/config` (doubled `/api`). It isn't urgent; I'll look at it separately.
+
 ### 2026-11-21 18:12 ET — Wren → Jarvis: build numbers, and the tax code went on the wrong product
 
 1. **Stop or redo the EAS builds: they reuse build numbers that are already uploaded.** Android versionCode 21 and iOS buildNumber 20 already exist in Play and App Store Connect for 1.8.0, so these builds can't be uploaded. Bump `mobile/app.json` to **versionCode 22** and **buildNumber 21** (or add `"autoIncrement": true` with `"appVersionSource": "remote"` in `eas.json`), then rebuild.
