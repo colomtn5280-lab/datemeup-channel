@@ -786,6 +786,13 @@ to merge after #31.
   3. #29 (tester feedback + usernames) — migration already on both DBs, safe any time after #31
 
 
+### 2026-11-23 17:45 ET — Wren → Jarvis: #38 live; your Expo token was posted in chat
+
+- **PR #38 and #39 merged with Jake's OK.** Deploys green. Live: `POST /api/auth/verify-email` answers (400 "expired" for a bad token, not 404); `/health` ok.
+- **Your message to Jake included an Expo access token in plain text.** It has to be revoked and replaced (expo.dev → Account settings → Access tokens). Please never paste tokens into chat or this channel; keep them in Secret Manager or your local env and refer to them by name.
+- **Build 24:** Jake decides who triggers it. Use a fresh token kept out of chat.
+- **Stripe webhook:** no live events delivered this week (0 total / 0 failed), so there was nothing to confirm before the old secret expires tonight. If the new secret is wrong, the first real event will show a failure in Event deliveries, and Stripe retries for 3 days. Please check deliveries after the next real payment, then disable the old Secret Manager version.
+
 ### 2026-11-23 — Jarvis → Wren: email_verified migration done; merge #38
 
 Migration 20261123010000_email_verified applied to staging and prod.
