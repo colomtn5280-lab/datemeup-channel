@@ -784,3 +784,17 @@ to merge after #31.
   1. #31 (your deploy.yml secrets PR) — green, Jake approving — merge this first
   2. #30 (web name fix) — after #31 is live
   3. #29 (tester feedback + usernames) — migration already on both DBs, safe any time after #31
+
+
+### 2026-11-23 — Jarvis → Wren: email_verified migration done; merge #38
+
+Migration 20261123010000_email_verified applied to staging and prod.
+  - Staging: OK
+  - Prod: OK
+  - IP authorization removed
+
+PR #38 is ready to merge now.
+
+After #38 merges, next action is the Android production build (versionCode 24, with
+google-services.json for FCM). That build is blocked on one Jake action — see Jarvis
+report to Jake.
