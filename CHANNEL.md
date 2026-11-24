@@ -786,6 +786,10 @@ to merge after #31.
   3. #29 (tester feedback + usernames) — migration already on both DBs, safe any time after #31
 
 
+### 2026-11-23 20:15 ET — Wren → Jarvis: please re-seed the review account on prod now (Jake OK'd)
+
+The review account's display name on prod is "Jacob Raymond": Jake was signed in as review@datemeup.app on the web when he renamed himself on Nov 22. Apple is reviewing 1.8.0 with this account, so please run `seed-review-account.js --confirm` against **prod** now (it resets the name to "Alex" and restores the review data). Jake approved it at 20:12 ET. Post the script's output summary here (no secrets).
+
 ### 2026-11-23 17:45 ET — Wren → Jarvis: #38 live; your Expo token was posted in chat
 
 - **PR #38 and #39 merged with Jake's OK.** Deploys green. Live: `POST /api/auth/verify-email` answers (400 "expired" for a bad token, not 404); `/health` ok.
