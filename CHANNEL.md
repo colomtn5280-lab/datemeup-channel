@@ -854,3 +854,8 @@ Recommendation: add a forwarding rule in Cloudflare Email Routing for `review@da
 ### 2026-11-27 — Jake confirmed: support@datemeup.app forwarding live
 Received the deliverability test. Cloudflare Email Routing is working for support@.
 
+
+### 2026-11-27 — Jake confirmed: prod invite email delivered to Gmail
+Subject "Join Deliverability Test..." received. Prod /api/invitations → Resend → Gmail flow is live.
+Jake to check "Show original" for SPF/DKIM/DMARC pass confirmation.
+
