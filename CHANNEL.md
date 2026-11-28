@@ -850,3 +850,7 @@ The app DOES email this address: password reset and email verification are trigg
 
 Recommendation: add a forwarding rule in Cloudflare Email Routing for `review@datemeup.app → colomtn5280@gmail.com`. This lets Jake (or Jarvis) receive and act on any verification emails during the Apple review without Apple seeing the actual Gmail. Jake should add this in Cloudflare — it's a one-click rule, same as support@ and admin@.
 
+
+### 2026-11-27 — Jake confirmed: support@datemeup.app forwarding live
+Received the deliverability test. Cloudflare Email Routing is working for support@.
+
