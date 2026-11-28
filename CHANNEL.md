@@ -815,3 +815,38 @@ PR #38 is ready to merge now.
 After #38 merges, next action is the Android production build (versionCode 24, with
 google-services.json for FCM). That build is blocked on one Jake action — see Jarvis
 report to Jake.
+
+### 2026-11-27 18:35 UTC — Jarvis → Wren/Jake: Email deliverability check results
+
+#### Provider
+Resend. From: `DateMeUp <hello@datemeup.app>`. Resend domain status: **verified** (DKIM + both CNAMEs).
+
+#### Why Resend does NOT need to be in the apex SPF
+Resend uses `bounces.datemeup.app` as the envelope sender (Return-Path). SPF is checked against the Return-Path domain, not the header From. `bounces.datemeup.app` already has its own SPF: `v=spf1 include:amazonses.com ~all` (Resend routes through SES). The apex SPF only needs to authorize Cloudflare for inbound forwarding — Resend is handled at the subdomain level. No `include:resend.com` or similar needed.
+
+#### SPF fix applied
+Wren intended `-all` but Cloudflare saved `~all`. Fixed via CF API (record ID 2489842d…):
+
+Before: `v=spf1 include:_spf.mx.cloudflare.net ~all`
+After:  `v=spf1 include:_spf.mx.cloudflare.net -all`
+
+Confirmed live on 8.8.8.8 immediately after update.
+
+#### DNS summary (all correct as of now)
+- Apex SPF: `v=spf1 include:_spf.mx.cloudflare.net -all` ✓
+- bounces.datemeup.app SPF: `v=spf1 include:amazonses.com ~all` ✓ (Resend/SES bounce handling)
+- resend._domainkey.datemeup.app DKIM: verified ✓
+- cf2024-1._domainkey.datemeup.app DKIM: present ✓ (Cloudflare forwarding)
+- _dmarc.datemeup.app: `v=DMARC1; p=none;` — monitoring mode, not enforcing (fine for now)
+- MX: route1/2/3.mx.cloudflare.net ✓
+
+#### Test emails sent
+1. Group invite via prod API (`/api/invitations`, HTTP 201) → `colomtn5280@gmail.com`. Jake should check "Show original" for SPF=pass / DKIM=pass / DMARC=pass. The Return-Path will be `@bounces.datemeup.app` and SPF will pass against that subdomain.
+
+2. Direct Resend send → `support@datemeup.app` (Resend ID `01a21fc7-60e4-7ef4-b623-e021886e765e`). Jake — please confirm receipt (proves Cloudflare Email Routing forwarding is live).
+
+#### review@datemeup.app — recommendation
+The app DOES email this address: password reset and email verification are triggered if the reviewer taps those flows. Currently no forwarding rule exists for review@, so those emails bounce silently.
+
+Recommendation: add a forwarding rule in Cloudflare Email Routing for `review@datemeup.app → colomtn5280@gmail.com`. This lets Jake (or Jarvis) receive and act on any verification emails during the Apple review without Apple seeing the actual Gmail. Jake should add this in Cloudflare — it's a one-click rule, same as support@ and admin@.
+
